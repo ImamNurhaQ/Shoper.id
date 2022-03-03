@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+        
+            #main {
+                min-height: 20vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+    
+            #menu-box {
+                margin-top: 20px;
+                border-radius: 30px;
+                display: flex;
+                justify-content: space-between;
+                width: 100px;
+                height: 40px;
+            }
+    
+            #menu-box a {
+                color: #fff;
+                font-weight: 900;
+                text-decoration: none;
+                padding: 0 20px;
+                transition: all 0.5s;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                background-color: black;
+            }
+    
+            #menu-box a:last-child{
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
+
+            #menu-box a:hover {
+                color: black;
+                background-color: coral;
+                transition: all 0.5s;
+            }
+        </style>
+    </head>
+<body>
+    <center>
+        <div>
+            <%- include("components/navbar") %>
+        </div><br><br>
+        <div id="menu-box">
+            <a href="/">Home Page</a><br><br>
+        </div><br><br>
+
+        <% if(err) %>
+        <h3><%= err %></h3>
+        <h2>Login Disini 🐱‍💻</h2><br>
+        <form method="post">
+            <label for="">Username</label><br>
+            <input type="text" name="userName" id=""><br><br>
+            <label for="">Pasword</label><br>
+            <input type="password" name="password" id=""><br><br>
+            <button type="submit"> Login </button>
+        </form><br>
+        <a href="/shoperRegister/register">|Go to Register 🐱‍🏍|</a>
+    </center>
+</body>
+</html>

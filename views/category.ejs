@@ -1,0 +1,121 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <style>
+
+        .header {
+            width: 100vw;
+            height: 5vh;
+            align-items: on;
+            background-color: black;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .content-container {
+            display: flex;
+            justify-content: start;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 20vw;
+            height: 35vh;
+            margin: 1% 1%;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+            overflow: hidden;
+        }
+
+        .card .card-content {
+            width: 100%;
+            height: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        button {
+            width: 100px;
+            height: 30px;
+        }
+
+        .seeDetail-btn {
+            background-color: green;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .delete-btn {
+            background-color: rgb(243, 56, 56);
+            border: none;
+            border-radius: 5px;
+        }
+
+        .Home-dan-Report>a {
+            margin: 0 5%;
+            color: white;
+        }
+
+        ._Name{
+            width: 40%;
+            height: 25px
+        }
+
+        #main-list table {
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        #main-list table tr th {
+            border-bottom: 5px solid black;
+        }
+
+        #main-list table tr td:first-child {
+            width: 20%;
+        }
+
+        td {
+            text-align: center;
+            height: 30px;
+            background-color: rgba(230, 230, 230, 0.356);
+        }
+
+        #main-list table tr td:last-child a:hover {
+            background-color: white;
+            transition: all 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <%- include("components/navbar") %> <br><br>
+    <center>
+        <h1>Welcome To The ShoperId 🐱‍👓 <%= name %> </h1><br><br>
+        <h3>Belanja Sepuasnya Di ShoperId 🐱‍🐉</h3>
+    </center><br>
+    <div id="main-list">
+        <table>
+            <tr>
+                <th>List Barang</th>
+                <th>Action</th>
+            </tr>
+            <%  for(let i = 0; i < data.length; i++){  %>
+                <tr>
+                    <td> <%= data[i].name %> </td>
+                    <td>
+                        <button class="seeDetail-btn"><a style="color: black;text-decoration: none;" href="shoper/<%= data[i].id %> ">Product 🛒</a></button>
+                    </td>
+                </tr>
+                <% } %>
+            </table>
+        </div><br><br>
+        <center>
+            <button class="delete-btn"><a style="color: black;text-decoration: none;" href='/shoperRegister/logout'>LOGOUT</a></button>
+        </center>
+</body>
+</html>

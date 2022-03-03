@@ -9,18 +9,78 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+
+    // static stockNotNull() {
+    //   let option = {
+    //     order: [
+    //       ['name', 'DESC']
+    //     ],
+    //     where: {
+    //       stock: {
+    //         [Op.gt]: 0
+    //       }
+    //     }
+    //   }
+    //   return Product.findAll(option)
+    // }
+
     static associate(models) {
       // define association here
-      Product.belongsTo(models.Category),
-      Product.hasMany(models.User)
+      Product.belongsTo(models.Category, {foreignKey: 'CategoryId'}),
+      Product.hasMany(models.User, {foreignKey: 'ProductId'})
     }
   }
   Product.init({
-    name: DataTypes.STRING,
-    description: DataTypes.STRING,
-    img: DataTypes.STRING,
-    stock: DataTypes.INTEGER,
-    price: DataTypes.INTEGER,
+    name: {
+      type: DataTypes.STRING,
+      allowNull :false,
+      validate : {
+        notEmpty: {
+          args: true,
+          msg: 'Nama Product harus disi!'
+        }
+      }
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull :false,
+      validate : {
+        notEmpty: {
+          args: true,
+          msg: 'Description harus disi!'
+        }
+      }
+    },
+    img: {
+      type: DataTypes.STRING,
+      allowNull :false,
+      validate : {
+        notEmpty: {
+          args: true,
+          msg: 'Link IMG tidak boleh kosong!'
+        }
+      }
+    },
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull :false,
+      validate : {
+        notEmpty: {
+          args: true,
+          msg: 'Stock harus disi!'
+        }
+      }
+    },
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull :false,
+      validate : {
+        notEmpty: {
+          args: true,
+          msg: 'Price harus di isi!'
+        }
+      }
+    },
     CategoryId: DataTypes.INTEGER
   }, {
     sequelize,

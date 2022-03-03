@@ -61,10 +61,14 @@
 <body>
     <%- include("components/navbar") %> <br><br>
         <div id="main">
-            <img src="https://cf.shopee.co.id/file/be5a8cfdd22b11ccd926b94293295762" alt="jpg"><br><br>
+            <h1 style="color: red"> ADA ERROR 🐱‍💻!!!</h1><br>
+            <% errors.forEach(err => { %>
+            <p style="color: red">
+                <%= err.message %>
+            </p>
+            <% }) %> <br><br>
             <div id="menu-box">
-                <a href="/shoperRegister/shoperId">User</a>
-                <a href="/shoper">Admin</a>
+                <a href="/shoper/add">Back 🐱‍🏍</a>
             </div>
         </div>
 </body>
