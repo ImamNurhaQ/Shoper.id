@@ -109,7 +109,9 @@ class Controller {
 
     static showProduct(req, res) {
 
-        Product.findAll({
+        let productName = req.query.name;
+
+        let option = {
             where: {
                 CategoryId: Number(req.params.CategoryId),
                 stock: {
@@ -119,7 +121,12 @@ class Controller {
             order: [
                 ['name', 'ASC']
             ]
-        })
+        }
+
+        if (productName) option.where.name = {
+            [Op.iLike]: `%${productName}%`
+        }
+        Product.findAll(option)
             .then(results => {
                 res.render('product', { results })
             })
