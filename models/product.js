@@ -1,6 +1,6 @@
 'use strict';
 const {
-  Model
+  Model, QueryTypes
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
@@ -10,19 +10,15 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
 
-    // static stockNotNull() {
-    //   let option = {
-    //     order: [
-    //       ['name', 'DESC']
-    //     ],
-    //     where: {
-    //       stock: {
-    //         [Op.gt]: 0
-    //       }
-    //     }
-    //   }
-    //   return Product.findAll(option)
-    // }
+    static dealTransaction({id, stock}) {
+      return sequelize.query(`UPDATE "Products" SET stock = stock - ${stock} WHERE id = ${id}`, {
+        type: QueryTypes.UPDATE,
+      });
+    }
+
+    get dateProduct(){
+      return new Date(this.createdAt).toISOString().split('T')[0]
+    }
 
     static associate(models) {
       // define association here

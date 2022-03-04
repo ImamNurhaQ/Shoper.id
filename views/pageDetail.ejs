@@ -7,6 +7,16 @@
     <title>Document</title>
 </head>
 <style>
+    button {
+            width: 100px;
+            height: 30px;
+        }
+
+        .seeDetail-btn {
+            background-color: green;
+            border: none;
+            border-radius: 5px;
+        }
 /*untuk line*/
 h5{
     white-space: pre-line;
@@ -14,21 +24,19 @@ h5{
 </style>
 <body>
     <%- include('components/navbar') %> <br><br>
+    <button class="seeDetail-btn"><a style="color: black;text-decoration: none;" href="/shoper/<%= result.Category.id %>">BACK 🐱‍🏍</a></button><br><br><br>
     <center>
-                <!-- <a href="/recipes">LIST RECIPES</a> -->
-        </nav>
         <h2> <%= result.name %> 
         </h2><br>
         <h3>Stock : <%= result.stock %>
         </h3><br>
         <h3>Price : <%= formatRupiah(result.price) %>
         </h3><br>
-        
-        </h5><br>
-        <img src="<%= result.img %> " width="200" height="200"><br><br>
+        <img src="<%= result.img %> " width="200" height="200"><br><br><br>
         <button>
-            <a style="color: rgb(30, 63, 210);" href="">Buy 🛒</a>
-        </button>
+            <a style="color: rgb(30, 63, 210);" href="/shoper/<%= result.id %>/detail/transaction">Angkut 🛒</a>
+        </button><br><br>
+        <h3 style="color: coral;">Tanggal Produksi: <%= result.dateProduct  %> </h3>
         <h1 style="color: rgb(42, 71, 165);">________________________________________________________________________________________</h1>
         <h3>Description :</h3>
         <h5>

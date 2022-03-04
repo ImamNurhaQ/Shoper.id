@@ -86,7 +86,7 @@ module.exports = (sequelize, DataTypes) => {
       validate : {
         notEmpty: {
           args: true,
-          msg: 'Role harus disi sesuai identitas!'
+          msg: 'Role harus diisi sesuai identitas!'
         }
       }
     },

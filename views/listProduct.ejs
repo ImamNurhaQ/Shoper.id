@@ -93,7 +93,7 @@
     </style>
 </head>
 <body>
-    <%- include("components/navbar") %> <br><br>
+    <%- include("components/navbar2") %> <br>
     <center>
         <% if (notif) { %>
             <h2 style="text-decoration: none; color: rgb(240, 17, 17);" class="etext-centr alert <%= notif.includes("Removed") ? "alert-danger" : "alert-primary" %>" role="alert">
@@ -103,8 +103,6 @@
     </center>
     <button class="seeDetail-btn"><a style="color: black;text-decoration: none;" href="shoper/add">Add Product 🐱‍💻</a></button>
     <br><br>
-    <!-- <button class="seeDetail-btn"><a style="color: black;text-decoration: none;" href="/">LOGOUT</a></button>
-    <br><br> -->
     <center>
     <form method="get"> 
         <input class="_Name" type="text" name="name" placeholder="Search by Category Name">
@@ -130,6 +128,7 @@
                     <td> <%= formatRupiah(el.price)  %> </td>
                     <td>
                         <button class="delete-btn"><a style="color: black;text-decoration: none;" href="/shoper/delete/<%= el.id %>">Delete 🗑</a></button> 
+                        <button class="seeDetail-btn"><a style="color: black;text-decoration: none;" href="/shoper/<%= el.id %>/edit">Edit 👨🏼‍💻</a></button> 
                     </td>
                 </tr>
             <% }); %>

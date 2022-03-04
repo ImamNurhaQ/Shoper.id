@@ -1,0 +1,26 @@
+
+<%- include("components/navbar") %> <br><br>
+<center>
+        <div> 
+            <a style="text-decoration: none; color: rgb(197, 117, 13);">
+                <h3>Edit: <%= result.name %>  🐱‍💻</h3>
+            </a><br><br>
+        <form method="POST">
+                    <label>Name :</label><br>
+                    <input type="text" name="name" value="<%= result.name %>"><br><br>
+                    <label>Description :</label><br>
+                    <textarea cols="50" rows="4" type="text" name="description" value="<%= result.description %>"><%= result.description %></textarea><br><br>
+                    <label>Link IMG :</label><br>
+                    <input type="text" name="img" value="<%= result.img %>"><br><br>
+                    <label>Stock :</label><br>
+                    <input type="number" name="stock" value="<%= result.stock %>"><br><br>
+                    <label>Price :</label><br>
+                    <input type="number" name="price" value="<%= result.price %>"><br><br>
+                    <input type="submit" value="Save Product" id="add-button">
+                    <br><br>
+        </form>
+    </div>
+</body>
+</center>
+</html>
+
