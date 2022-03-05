@@ -1,33 +1,38 @@
 # Shoper.id
-Kelompok Imam & Ali : Shoper.id
 
 Tema: e-commerce
 
-Konsep:
-1.	Toko e-commerce dimana kita bisa membeli barang secara online
+Routers & tampilan:
 
-Dokumentasi:
-●	Platform home memiliki tampilan 2 login: login admin dan login user
+1.	HOMEPAGE ( ‘ / ’ )
+Landing page awal bagi user, menampilkan pilihan untuk login ke user (pembeli) atau admin
 
-●	Fitur admin:
-1.	Admin memiliki 3 fitur; addProduct, Search, dan delete
-2.	addProduct berfungsi menambah produk yang akan ditampilkan
-3.	SeeDetail akan digunakan untuk mengakses semua komponen product
-4.	Search digunakan untuk mencari produk yang akan diinput dalam inputan search bar
-5.	Delete digunakan untuk menghapus produk dari list
+2.	LOGIN PAGE 
+Page yang berfungsi bagi user untuk melakukan login. Jika belum memiliki akun, user diharuskan membuat akun terlebih dahulu.
 
-●	Fitur user:
-1.	Show list product, 
-2.	Dalam list product: 
-a.	Detail, liat detail produk 
-b.	addQuantity, menambah quantity (Total Produk) untuk masuk ke keranjang (Transaction) 
-c.	addtoTransaction, menginput data barang dan quantity yg sudah diinput ke keranjang  
-3.	Dalam addToTransaction (keranjang):
-a.	Show produk yg sudah kita klik ‘addToKeranjang’ kedalam page keranjang (Transaction)
-b.	Buy, membeli barang yg diinput, langsung mengurangi quantity dalam list product
-c.	Delete, menghapus barang yg ingin dibeli
+3.	REGISTER ACCOUNT ('/shoperRegister')
+Page yang berisi form bagi user untuk mendaftar akun. Setelah mendaftar, user akan di redirect ke page LOGINPAGE
 
-1.	Routes:
-a.	Routes pake yg kemaren
-b.	Untuk tambahan, setiap selesai ‘Buy’ di fitur keranjang redirect ke list product
+USER:
+4.	USER HOME (PEMBELI) (‘/shoperRegister’)
+Page yang tampil ketika pembeli login ke website. Disini kita dapat melihat yang dijual di website, adapun tambahan action dalam page ini adalah product detail 
+
+5.	PRODUCT LIST (‘/:CategoryId’)
+Menampilkan list barang yang dimiliki oleh kategori tertentu dalam website. Disini user dapat melihat lebih jauh lagi detail produk melewati tombol ‘Detail Product’
+
+6.	PRODUCT DETAIL (‘ /:ProductId/detail’)
+Menampilkan detail produk yang dimiliki dalam website. Disini user dapat melakukan pembelian produk melewati tombol ‘angkut’
+ 
+7.	PRODUCT TRANSACTION (‘/:ProductId/detail/transaction’)
+Disini user akan melakukan input barang yang akan dibeli. Ketika klik ‘Bungkus’ maka stok akan otomatis berkurang sesuai jumlah barang yang diinput. Berikut adalah tampilan ketika user membeli barang sejumlah 1.
+
+ADMIN:
+8.	ADMIN HOME (‘ /shop ‘) 
+Page yang tampil ketika admin login ke website. Disini kita dapat melihat list product yang tersedia dalam website, adapun tambahan action dalam page ini adalah add product, detail, search dan delete
+
+9.	EDIT FORM (‘ shoper/1/edit ‘)
+Form yang muncul ketika admin mengklik edit, page ini akan merubah data produk sesuai dengan input yang dimasukkan oleh admin.
+ 
+10.	ADD PRODUCT FORM (‘shoper/add’)
+Form yang muncul ketika admin mengklik add product, page ini akan menambah data produk sesuai dengan input yang dimasukkan oleh admin.
 
